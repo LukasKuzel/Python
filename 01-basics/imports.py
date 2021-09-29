@@ -81,8 +81,10 @@ today = date.today()
 print("Todays date is: ",today)
 
 from dateutil.easter import *
-print(easter(2022))
-print(easter(2023))
-print(easter(2024))
-print(easter(2025))
-print(easter(2026))
+for easter in range(2020, 2025):
+    print("{}".format(easter))
+
+from dateutil.rrule import *
+from dateutil.relativedelta import *
+year = rrule(YEARLY,dtstart=now,bymonth=8,bymonthday=13,byweekday=FR)[0].year
+rdelta = relativedelta(easter(year), today)

@@ -158,3 +158,19 @@ funkční kód, tím lepší).
 3. Vytvořte funkci, která vygeneruje náhodná hesla pro počet osob zadaný v parametru tak, aby heslo začínalo
    3 velkými písmeny, pokračovalo 3 malými písmeny, jedním speciálním znakem (-/+*) a končilo 3 náhodnými číslicemi.
 '''
+
+from datetime import date
+today = date.today()
+print("Todays date is: ",today)
+print(today.strftime(""))
+
+from unidecode import unidecode
+def python2():
+    napis = input("Zadejte nějaké slovo:")
+    hotovo = unidecode(napis).lower()
+    hotovo = hotovo.replace(' ', '_')
+    print(hotovo)
+python2()
+
+#Pokusím se dodělat později
+

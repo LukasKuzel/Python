@@ -1,11 +1,3 @@
-'''
-Konstanty v Pythonu
-
-Konstanta je vlastně speciální typ proměnné, jejíž hodnota nemůže být změněna.
-V Pythonu jsou konstanty obvykle deklarovány a přiřazovány v modulu, který bývá importován do souboru aplikace.
-Konstanty jsou pojmenovány velkými písmeny a jednotlivá slova jsou oddělována podtržítky.
-'''
-
 EARTH_GRAVITY = 9.8 #? normální pozemské tíhové zrychlení
 MOON_GRAVITY = 1.62 #? měsíční gravitace
 SPEED_OF_LIGHT = 300000000 #? rychlost světla ve vakuu
@@ -13,16 +5,6 @@ SPEED_OF_LIGHT_KM = 300000000*3.6
 SPEED_OF_SOUND = 343 #? rychlost zvuku při teplotě 20 °C v suchém vzduchu
 VENUSE_OD_ZEME = 41000000*1000 #km
 RYCHLOST_STRELY_TANKU = 1800 #m/s
-
-''' 
-Úkol:
-1. Doplňte správně hodnoty uvedených konstant.
-2. Doplňte physics.py o několik výpočtových funkcí (opatřené docstrings), v nichž využijete minimálně všechny výše uvedené konstanty.
-Samozřejmě můžete své řešení rozšířit i o jiné fyzikální konstanty.
-3. Vytvořte z tohoto souboru samostatný modul v Pythonu podle návodu, který si sami najdete na internetu.      
-4. Vytvořte vlastní aplikaci myapp.py, do níž tento modul importujte. Demonstrujte v ní na jednoduchých příkladech využití vámi
-připravených funkcí.  
-'''
 
 def EarthGravity():
     print("Výpočet gravitační síly na Zemi a Měsíci")
@@ -39,6 +21,7 @@ def SpeedOfLight():
     print("Jestli chcete počítat vzdálenost od Země, stiskněte 1")
     print("Jestli chcete počítat vzdálenost Země a Venuše, stiskněte 2")
     odpoved = input()
+    print("-------------------------------------------")
     if odpoved == "1":
         s = input("Zadejte vzdálenost(v km):")
         t = float(s) / float(SPEED_OF_LIGHT_KM)
@@ -54,6 +37,7 @@ def SpeedOfLight():
 def SpeedOfSound():
     print("Vypočítáme čas pomocí rychlosti zvuku.")
     s = input("Zadejte délku/neboli dráhu v metrech:")
+    print("-------------------------------------------")
     vysledek1 = float(s)/float(SPEED_OF_SOUND)
     vysledek2 = (float(s) / float(SPEED_OF_SOUND))/60
     vysledek3 = ((float(s) / float(SPEED_OF_SOUND))/60)/60
@@ -64,26 +48,30 @@ def SpeedOfSound():
 def SpeedOfTankBullet():
     print("Vypočítáme dobu letu střely z kanonu od tanku.")
     s = input("Zadejte délku/neboli dráhu v metrech:")
+    print("-------------------------------------------")
     vysledek1 = float(s) / float(RYCHLOST_STRELY_TANKU)
     print("Doba letu střely bude {:.4f} sekund.".format(vysledek1))
 
 def AllFour():
-    print("Vyberte druh výpočtu:")
-    print("Výpočet gravitační síly na Zemi a Měsíci. - 1")
-    print("Výpočet cestovaní vesmírem na různá místa v rychlosti světla. - 2")
-    print("Vypočítáme čas pomocí rychlosti zvuku. - 3")
-    print("Vypočítáme dobu letu střely z kanonu od tanku. - 4")
-    odpoved2 = input()
-    if odpoved2 == "1":
-        EarthGravity()
-    elif odpoved2 == "2":
-        SpeedOfLight()
-    elif odpoved2 == "3":
-        SpeedOfSound()
-    elif odpoved2 == "4":
-        SpeedOfTankBullet()
-    else:
-        exit()
-
-print(AllFour.__doc__)
-AllFour()
+    while True:
+        print("\n")
+        print("Vyberte druh výpočtu:")
+        print("Výpočet gravitační síly na Zemi a Měsíci. - 1")
+        print("Výpočet cestovaní vesmírem na různá místa v rychlosti světla. - 2")
+        print("Vypočítáme čas pomocí rychlosti zvuku. - 3")
+        print("Vypočítáme dobu letu střely z kanonu od tanku. - 4")
+        print("Zmáčkni 5 pro ukončení")
+        print("-------------------------------------------")
+        odpoved2 = input()
+        if odpoved2 == "1":
+            EarthGravity()
+        elif odpoved2 == "2":
+            SpeedOfLight()
+        elif odpoved2 == "3":
+            SpeedOfSound()
+        elif odpoved2 == "4":
+            SpeedOfTankBullet()
+        elif odpoved2 == "5":
+            exit()
+        else:
+            exit()
