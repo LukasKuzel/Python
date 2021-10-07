@@ -9,6 +9,8 @@ https://www.youtube.com/watch?v=_uQrJ0TkZlc&list=PLDDhGQzLtPdbS987RIIT8WKwb-L_K2
 https://www.w3schools.com/python/python_lists.asp
 https://macek.sandbox.cz/texty/python-tutorial-cz/tut/node5.html
 '''
+import random
+import string
 
 '''
 Příklady různých seznamů v Pythonu:
@@ -285,8 +287,26 @@ print(f'\tSbalení seznamů do proměnné values: {values}\n')
 from random import randint
 
 print(f'\n*************************************\nCvičení 2\n*************************************')
+#a
+hundreds = list(range(1,2001))
+hundreds = [x for x in range(200, 2001, 200)]
+print(hundreds)
 
+#b
+ascii = [x for i in range(50) for x in random.choice(string.ascii_uppercase)]
+print(ascii)
 
+#c
+hundreds = hundreds[3:-3]
+print(hundreds)
+
+#d
+unique = [x for x in ascii if (ascii.count(x)==1)]
+print(unique)
+
+#e
+zipped = zip(hundreds, unique)
+print(list(zipped))
 
 # ??? 3. cvičení ???
 # a) Přidejte do listu persons ještě n-tice (tuples) dalších 2 žen a 2 mužů.
@@ -298,3 +318,25 @@ print(f'\n*************************************\nCvičení 2\n******************
 # Záznamy budou seřazeny podle věku (sestupně).
 
 print(f'\n*************************************\nCvičení 3\n*************************************')
+#a
+persons = [
+    ('Karel', 20, 'muž'),
+    ('Jana', 21, 'žena'),
+    ('Ivan', 40, 'muž'),
+    ('Milada', 50, 'žena'),
+    ('Hildak', 43, 'muž'),
+]
+women = list(filter(lambda person: person[2] == "žena", persons))
+women = [person for person in persons if person[2] == "žena"]
+for person in women:
+    print(f"{person[0]}\n" + "-" * len(person[0]))
+
+#b
+ippeople = list(filter(lambda person: person[0].count("i") > 0 or person[0].count("I") > 0, persons))
+ippeople = [person for person in persons if person[0].count("i") > 0 or person[0].count("I") > 0]
+ippeople.sort(key=lambda item: item[1], reverse=True)
+print(ippeople)
+ippeopleCSV = "idnex;jmeno;vek;pohlavi\n"
+for i in range(len(ippeople)):
+    ippeopleCSV += f"{i};" + ";".join(map(str, ippeople[i])) + "\n"
+print(ippeopleCSV)

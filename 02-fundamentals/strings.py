@@ -172,5 +172,5 @@ def python2():
     print(hotovo)
 python2()
 
-#Pokusím se dodělat později
+
 
