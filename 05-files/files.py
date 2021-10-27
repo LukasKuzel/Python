@@ -1,4 +1,4 @@
-def fileRead(path):
+ def fileRead(path):
     try:
         with open(path, encoding='utf-8') as file:
             data = file.read()

@@ -28,3 +28,4 @@ Vìta: Tøi sta tøicet tøi støíbrnıch støíkaèek pøestøíkalo pøes tøi sta tøicet tø
  ('l', 1),
  ('o', 1),
  ('.', 1)]
+
