@@ -28,6 +28,7 @@ def charFrequency():
     print(f'Počet písmenek je:')
     for item in veta_list:
         counts_ascii[item] = (counts_ascii[item] + 1) if (item in counts_ascii) else 1
-    for i in counts_ascii.items():
+    sort_orders = dict(sorted(counts_ascii.items(), key=lambda x: x[1], reverse=True))
+    for i in sort_orders.items():
         print(i)
 charFrequency()
